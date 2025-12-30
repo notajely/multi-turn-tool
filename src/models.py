@@ -52,7 +52,8 @@ class LLMClient:
                 response = self.client.chat.completions.create(
                     model=self.model_name,
                     messages=full_messages,
-                    temperature=0.7
+                    temperature=0.7,
+                    timeout=30  # Added timeout
                 )
                 return response.choices[0].message.content
             except Exception as e:

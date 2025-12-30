@@ -10,6 +10,8 @@ class TrajectoryMetadata(BaseModel):
     mut_name: str
     prober_name: str
     timestamp: str
+    total_turns: int
+    max_turns: int
 
 class Trajectory(BaseModel):
     metadata: TrajectoryMetadata
