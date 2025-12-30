@@ -7,11 +7,12 @@ class Message(BaseModel):
 
 class TrajectoryMetadata(BaseModel):
     seed_id: str
-    assistant_model: str
     user_model: str
+    assistant_model: str
     timestamp: str
     total_turns: int
     max_turns: int
+    user_strategies: List[str] = []
 
 class Trajectory(BaseModel):
     metadata: TrajectoryMetadata

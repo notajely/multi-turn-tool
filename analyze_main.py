@@ -33,6 +33,7 @@ def run_single_analysis(analyzer: BehaviorAnalyzer, task: Dict[str, Any]):
             "seed_id": task["seed_id"],
             "turn_index": task["turn_index"],
             "chunker_type": task["chunker_type"],
+            "user_strategy": task["user_strategy"],
             "classifier_name": task["classifier_name"],
             "is_detected": res["is_detected"],
             "confidence": res["confidence"],
@@ -43,6 +44,7 @@ def run_single_analysis(analyzer: BehaviorAnalyzer, task: Dict[str, Any]):
             "seed_id": task["seed_id"],
             "turn_index": task["turn_index"],
             "chunker_type": task["chunker_type"],
+            "user_strategy": task["user_strategy"],
             "classifier_name": task["classifier_name"],
             "is_detected": False,
             "confidence": 0,
@@ -141,10 +143,20 @@ def main():
                 
                 for cls_name in classifier_list:
                     chunker_type = analyzer.get_chunker_type(cls_name)
+                    
+                    # Get intended strategy for this turn
+                    # user_strategies[0] corresponds to turn 2 follow-up (idx 3)
+                    # user_strategies[1] corresponds to turn 3 follow-up (idx 5)
+                    user_strategy = "N/A"
+                    strat_idx = (idx // 2) - 1 # idx 3 -> 0, idx 5 -> 1
+                    if 0 <= strat_idx < len(trajectory.metadata.user_strategies):
+                        user_strategy = trajectory.metadata.user_strategies[strat_idx]
+                    
                     all_tasks.append({
                         "seed_id": trajectory.metadata.seed_id,
                         "turn_index": turn_index,
                         "chunker_type": chunker_type,
+                        "user_strategy": user_strategy,
                         "classifier_name": cls_name,
                         "chunk": chunk,
                         "snippet": convo_dicts[idx]["content"][:100] + "..."
@@ -169,7 +181,7 @@ def main():
 
     # 6. Save Results
     if all_results:
-        keys = ["seed_id", "turn_index", "chunker_type", "classifier_name", "is_detected", "confidence", "mut_response_snippet"]
+        keys = ["seed_id", "turn_index", "chunker_type", "user_strategy", "classifier_name", "is_detected", "confidence", "mut_response_snippet"]
         # Sort results by seed_id and turn_index
         all_results.sort(key=lambda x: (x["seed_id"], x["turn_index"]))
         
