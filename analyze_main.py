@@ -32,6 +32,7 @@ def run_single_analysis(analyzer: BehaviorAnalyzer, task: Dict[str, Any]):
         return {
             "seed_id": task["seed_id"],
             "turn_index": task["turn_index"],
+            "chunker_type": task["chunker_type"],
             "classifier_name": task["classifier_name"],
             "is_detected": res["is_detected"],
             "confidence": res["confidence"],
@@ -41,6 +42,7 @@ def run_single_analysis(analyzer: BehaviorAnalyzer, task: Dict[str, Any]):
         return {
             "seed_id": task["seed_id"],
             "turn_index": task["turn_index"],
+            "chunker_type": task["chunker_type"],
             "classifier_name": task["classifier_name"],
             "is_detected": False,
             "confidence": 0,
@@ -76,7 +78,9 @@ def main():
     # Use run_id for output filename if default is used
     if args.output_file == "data/analysis_results/summary.csv":
         run_id = os.path.basename(args.trajectory_dir)
-        args.output_file = f"data/analysis_results/analysis_{run_id}.csv"
+        output_dir = os.path.join("data/analysis_results", run_id)
+        os.makedirs(output_dir, exist_ok=True)
+        args.output_file = os.path.join(output_dir, "analysis.csv")
 
     os.makedirs(os.path.dirname(args.output_file), exist_ok=True)
     
@@ -136,9 +140,11 @@ def main():
                 turn_index = (idx // 2) + 1
                 
                 for cls_name in classifier_list:
+                    chunker_type = analyzer.get_chunker_type(cls_name)
                     all_tasks.append({
                         "seed_id": trajectory.metadata.seed_id,
                         "turn_index": turn_index,
+                        "chunker_type": chunker_type,
                         "classifier_name": cls_name,
                         "chunk": chunk,
                         "snippet": convo_dicts[idx]["content"][:100] + "..."
@@ -163,7 +169,7 @@ def main():
 
     # 6. Save Results
     if all_results:
-        keys = ["seed_id", "turn_index", "classifier_name", "is_detected", "confidence", "mut_response_snippet"]
+        keys = ["seed_id", "turn_index", "chunker_type", "classifier_name", "is_detected", "confidence", "mut_response_snippet"]
         # Sort results by seed_id and turn_index
         all_results.sort(key=lambda x: (x["seed_id"], x["turn_index"]))
         
@@ -173,8 +179,75 @@ def main():
             writer.writerows(all_results)
         
         print(f"\nAnalysis complete. Results saved to {args.output_file}")
+        
+        # 7. Generate Statistical Summary
+        dirname = os.path.dirname(args.output_file)
+        stats_file = os.path.join(dirname, "stats.csv")
+        generate_stats(all_results, stats_file)
     else:
         print("\nNo analysis results generated.")
+
+def generate_stats(results: List[Dict[str, Any]], output_path: str):
+    """
+    Generates a pivot table style summary:
+    chunker_type | classifier_name | FALSE | TRUE | Total
+    """
+    # structure: { (chunker_type, classifier_name): {'TRUE': 0, 'FALSE': 0, 'Total': 0} }
+    pivot = {}
+    
+    for r in results:
+        ctype = r["chunker_type"]
+        cname = r["classifier_name"]
+        is_det = "TRUE" if r["is_detected"] else "FALSE"
+        
+        key = (ctype, cname)
+        if key not in pivot:
+            pivot[key] = {"TRUE": 0, "FALSE": 0, "Total": 0}
+            
+        pivot[key][is_det] += 1
+        pivot[key]["Total"] += 1
+        
+    # Sort by chunker_type then classifier_name
+    sorted_keys = sorted(pivot.keys())
+    
+    with open(output_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["chunker_type", "classifier_name", "FALSE", "TRUE", "Total"])
+        
+        current_ctype = None
+        ctype_totals = {"TRUE": 0, "FALSE": 0, "Total": 0}
+        
+        for ctype, cname in sorted_keys:
+            # Handle Group Totals (optional but matches image logic)
+            if current_ctype is not None and ctype != current_ctype:
+                writer.writerow([f"Total {current_ctype}", "", ctype_totals["FALSE"], ctype_totals["TRUE"], ctype_totals["Total"]])
+                writer.writerow([]) # Blank line for readability
+                ctype_totals = {"TRUE": 0, "FALSE": 0, "Total": 0}
+            
+            current_ctype = ctype
+            row_data = pivot[(ctype, cname)]
+            writer.writerow([ctype, cname, row_data["FALSE"], row_data["TRUE"], row_data["Total"]])
+            
+            # Accumulate group totals
+            ctype_totals["TRUE"] += row_data["TRUE"]
+            ctype_totals["FALSE"] += row_data["FALSE"]
+            ctype_totals["Total"] += row_data["Total"]
+            
+        # Final group total
+        if current_ctype is not None:
+            writer.writerow([f"Total {current_ctype}", "", ctype_totals["FALSE"], ctype_totals["TRUE"], ctype_totals["Total"]])
+
+    # Also add a Grand Total at the very end
+    grand_true = sum(v["TRUE"] for v in pivot.values())
+    grand_false = sum(v["FALSE"] for v in pivot.values())
+    grand_total = sum(v["Total"] for v in pivot.values())
+    
+    with open(output_path, "a", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow([])
+        writer.writerow(["Grand Total", "", grand_false, grand_true, grand_total])
+    
+    print(f"Pivot table summary saved to {output_path}")
 
 if __name__ == "__main__":
     main()

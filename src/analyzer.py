@@ -42,6 +42,10 @@ class BehaviorAnalyzer:
             prompt=defn["prompt"]
         )
 
+    def get_chunker_type(self, classifier_name: str) -> str:
+        defn = self.definitions.get(classifier_name)
+        return defn.get("chunker", "unknown") if defn else "unknown"
+
     def parse_judgement(self, response: str) -> Tuple[bool, int]:
         """
         Parses response like "true, 5" or "yes, 4".
