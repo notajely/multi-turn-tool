@@ -1,6 +1,8 @@
 import os
 import argparse
 import sys
+from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from src.utils import csv_to_json
 from src.models import LLMClient
 from src.engine import SimulationEngine
@@ -15,6 +17,15 @@ def load_dotenv(path=".env"):
                 continue
             key, value = line.split("=", 1)
             os.environ[key] = value
+
+def process_seed(engine, seed, turns):
+    seed_id = seed['seed_id']
+    content = seed['content']
+    try:
+        trajectory = engine.run_session(seed_id, content, turns=turns)
+        return seed_id, True, len(trajectory.conversation) // 2
+    except Exception as e:
+        return seed_id, False, str(e)
 
 def main():
     parser = argparse.ArgumentParser(description="Multi-turn dialogue simulation for anthropomorphism probing.")
@@ -31,6 +42,8 @@ def main():
     
     parser.add_argument("--limit", type=int, default=None, help="Limit number of seeds to process.")
     parser.add_argument("--env_file", type=str, default=".env", help="Path to .env file.")
+    parser.add_argument("--turns", type=int, default=3, help="Total number of dialogue rounds.")
+    parser.add_argument("--max_workers", type=int, default=5, help="Maximum number of parallel sessions.")
 
     args = parser.parse_args()
 
@@ -60,16 +73,18 @@ def main():
     # 3. Initialize Engine
     engine = SimulationEngine(prober=prober_client, mut=mut_client, output_dir=args.output_dir)
 
-    # 4. Run Simulation
-    for seed in seeds:
-        seed_id = seed['seed_id']
-        content = seed['content']
-        try:
-            engine.run_session(seed_id, content)
-            print(f"Successfully processed {seed_id}")
-        except Exception as e:
-            print(f"Failed to process {seed_id}: {e}")
-            # Continue to next seed
+    # 4. Run Simulation in Parallel
+    print(f"Starting simulation: Prober={args.prober_model}, MUT={args.mut_model}, Parallel Workers={args.max_workers}")
+    
+    with ThreadPoolExecutor(max_workers=args.max_workers) as executor:
+        futures = {executor.submit(process_seed, engine, seed, args.turns): seed for seed in seeds}
+        
+        for future in tqdm(as_completed(futures), total=len(seeds), desc="Simulating"):
+            seed_id, success, result = future.result()
+            if success:
+                tqdm.write(f"✓ {seed_id}: Completed {result} rounds.")
+            else:
+                tqdm.write(f"✗ {seed_id}: Failed: {result}")
 
 if __name__ == "__main__":
     main()
