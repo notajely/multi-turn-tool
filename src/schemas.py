@@ -7,8 +7,8 @@ class Message(BaseModel):
 
 class TrajectoryMetadata(BaseModel):
     seed_id: str
-    mut_name: str
-    prober_name: str
+    assistant_model: str
+    user_model: str
     timestamp: str
     total_turns: int
     max_turns: int

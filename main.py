@@ -35,11 +35,11 @@ def main():
     parser.add_argument("--output_dir", type=str, default="data/trajectories", help="Directory to save trajectories.")
     
     # Model Selection
-    parser.add_argument("--prober_model", type=str, default="claude37_sonnet", help="Model name for Prober.")
-    parser.add_argument("--prober_channel", type=str, default="idealab", help="Channel for Prober (dashscope, whale, etc.).")
+    parser.add_argument("--user_model", type=str, default="gpt-4o-mini-0718", help="Model name for User model.")
+    parser.add_argument("--user_channel", type=str, default="idealab", help="Channel for User (dashscope, whale, etc.).")
     
-    parser.add_argument("--mut_model", type=str, default="qwen2.5-72b-instruct", help="Model name for MUT.")
-    parser.add_argument("--mut_channel", type=str, default="dashscope", help="Channel for MUT (dashscope, whale, etc.).")
+    parser.add_argument("--assistant_model", type=str, default="Oyster_7B_dpo", help="Model name for Assistant model.")
+    parser.add_argument("--assistant_channel", type=str, default="whale", help="Channel for Assistant (dashscope, whale, etc.).")
     
     parser.add_argument("--limit", type=int, default=None, help="Limit number of seeds to process.")
     parser.add_argument("--env_file", type=str, default=".env", help="Path to .env file.")
@@ -53,7 +53,7 @@ def main():
 
     # 0. Generate Run ID and Output Directory
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_id = f"{args.prober_model.split('/')[-1]}_vs_{args.mut_model.split('/')[-1]}_{timestamp}"
+    run_id = f"{args.user_model.split('/')[-1]}_vs_{args.assistant_model.split('/')[-1]}_{timestamp}"
     actual_output_dir = os.path.join(args.output_dir, run_id)
     os.makedirs(actual_output_dir, exist_ok=True)
 
@@ -71,8 +71,8 @@ def main():
 
     # 2. Initialize Models
     try:
-        prober_client = LLMClient(model_name=args.prober_model, channel=args.prober_channel)
-        mut_client = LLMClient(model_name=args.mut_model, channel=args.mut_channel)
+        prober_client = LLMClient(model_name=args.user_model, channel=args.user_channel)
+        mut_client = LLMClient(model_name=args.assistant_model, channel=args.assistant_channel)
     except ValueError as e:
         print(f"Error initializing models: {e}")
         return
@@ -81,7 +81,7 @@ def main():
     engine = SimulationEngine(prober=prober_client, mut=mut_client, output_dir=actual_output_dir)
 
     # 4. Run Simulation in Parallel
-    print(f"Starting simulation: Prober={args.prober_model}, MUT={args.mut_model}, Parallel Workers={args.max_workers}")
+    print(f"Starting simulation: User={args.user_model}, Assistant={args.assistant_model}, Parallel Workers={args.max_workers}")
     print(f"Output directory: {actual_output_dir}")
     
     with ThreadPoolExecutor(max_workers=args.max_workers) as executor:

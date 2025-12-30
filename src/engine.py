@@ -28,6 +28,7 @@ class SimulationEngine:
         # Round 1: Seed to MUT
         self.logger_info(f"Starting session {seed_id}")
         mut_response = self.mut.chat_completion([{"role": "user", "content": seed_content}])
+        
         conversation.append(Message(role="user", content=seed_content))
         conversation.append(Message(role="assistant", content=mut_response))
 
@@ -53,8 +54,8 @@ class SimulationEngine:
         trajectory = Trajectory(
             metadata=TrajectoryMetadata(
                 seed_id=seed_id,
-                mut_name=self.mut.model_name,
-                prober_name=self.prober.model_name,
+                assistant_model=self.mut.model_name,
+                user_model=self.prober.model_name,
                 timestamp=datetime.datetime.now().isoformat(),
                 total_turns=len(conversation) // 2,
                 max_turns=turns
