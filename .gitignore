@@ -1,5 +1,6 @@
 # Sensitive Info
 .env
+.gitignore
 
 # Data
 data/
