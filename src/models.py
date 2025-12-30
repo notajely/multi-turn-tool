@@ -1,6 +1,7 @@
 import os
 import time
 import logging
+import random
 from openai import OpenAI
 
 class LLMClient:
@@ -40,7 +41,7 @@ class LLMClient:
             return "idealab"
         return "openai"
 
-    def chat_completion(self, messages: list, system_prompt: str = None, max_retries: int = 3):
+    def chat_completion(self, messages: list, system_prompt: str = None, max_retries: int = 5):
         full_messages = []
         if system_prompt:
             full_messages.append({"role": "system", "content": system_prompt})
@@ -48,17 +49,26 @@ class LLMClient:
 
         for attempt in range(max_retries):
             try:
-                # Handle special model names or requirements here if needed
                 response = self.client.chat.completions.create(
                     model=self.model_name,
                     messages=full_messages,
                     temperature=0.7,
-                    timeout=30  # Added timeout
+                    timeout=30
                 )
                 return response.choices[0].message.content
             except Exception as e:
+                # Check for rate limit specifically
+                status_str = str(e)
+                is_rate_limit = "429" in status_str or "limit" in status_str.lower()
+                
+                # Exponential backoff with jitter
+                wait_time = (2 ** attempt) + random.random()
+                if is_rate_limit:
+                    wait_time += 5 # Wait longer for rate limits
+                
                 self.logger.error(f"Error calling API ({self.model_name}) (Attempt {attempt+1}/{max_retries}): {e}")
+                
                 if attempt < max_retries - 1:
-                    time.sleep(2 ** attempt)
+                    time.sleep(wait_time)
                 else:
                     raise e

@@ -1,6 +1,7 @@
 import os
 import argparse
 import sys
+import datetime
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from src.utils import csv_to_json
@@ -50,6 +51,12 @@ def main():
     # Load environment variables
     load_dotenv(args.env_file)
 
+    # 0. Generate Run ID and Output Directory
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_id = f"{args.prober_model.split('/')[-1]}_vs_{args.mut_model.split('/')[-1]}_{timestamp}"
+    actual_output_dir = os.path.join(args.output_dir, run_id)
+    os.makedirs(actual_output_dir, exist_ok=True)
+
     # 1. Convert CSV to JSON
     if not os.path.exists(args.csv_input):
         print(f"Error: CSV input file '{args.csv_input}' not found.")
@@ -71,10 +78,11 @@ def main():
         return
 
     # 3. Initialize Engine
-    engine = SimulationEngine(prober=prober_client, mut=mut_client, output_dir=args.output_dir)
+    engine = SimulationEngine(prober=prober_client, mut=mut_client, output_dir=actual_output_dir)
 
     # 4. Run Simulation in Parallel
     print(f"Starting simulation: Prober={args.prober_model}, MUT={args.mut_model}, Parallel Workers={args.max_workers}")
+    print(f"Output directory: {actual_output_dir}")
     
     with ThreadPoolExecutor(max_workers=args.max_workers) as executor:
         futures = {executor.submit(process_seed, engine, seed, args.turns): seed for seed in seeds}
