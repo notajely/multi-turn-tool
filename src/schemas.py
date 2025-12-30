@@ -13,6 +13,7 @@ class TrajectoryMetadata(BaseModel):
     total_turns: int
     max_turns: int
     user_strategies: List[str] = []
+    user_profile: Optional[str] = None
 
 class Trajectory(BaseModel):
     metadata: TrajectoryMetadata

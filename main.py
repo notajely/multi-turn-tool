@@ -19,11 +19,11 @@ def load_dotenv(path=".env"):
             key, value = line.split("=", 1)
             os.environ[key] = value
 
-def process_seed(engine, seed, turns):
+def process_seed(engine, seed, turns, profile_id=None):
     seed_id = seed['seed_id']
     content = seed['content']
     try:
-        trajectory = engine.run_session(seed_id, content, turns=turns)
+        trajectory = engine.run_session(seed_id, content, turns=turns, profile_id=profile_id)
         return seed_id, True, len(trajectory.conversation) // 2
     except Exception as e:
         return seed_id, False, str(e)
@@ -45,6 +45,7 @@ def main():
     parser.add_argument("--env_file", type=str, default=".env", help="Path to .env file.")
     parser.add_argument("--turns", type=int, default=3, help="Total number of dialogue rounds.")
     parser.add_argument("--max_workers", type=int, default=5, help="Maximum number of parallel sessions.")
+    parser.add_argument("--profile_id", type=int, default=None, help="Specific profile ID to use for all sessions.")
 
     args = parser.parse_args()
 
@@ -85,7 +86,7 @@ def main():
     print(f"Output directory: {actual_output_dir}")
     
     with ThreadPoolExecutor(max_workers=args.max_workers) as executor:
-        futures = {executor.submit(process_seed, engine, seed, args.turns): seed for seed in seeds}
+        futures = {executor.submit(process_seed, engine, seed, args.turns, args.profile_id): seed for seed in seeds}
         
         for future in tqdm(as_completed(futures), total=len(seeds), desc="Simulating"):
             seed_id, success, result = future.result()
