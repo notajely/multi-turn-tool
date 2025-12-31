@@ -52,9 +52,18 @@ class LLMClient:
                 response = self.client.chat.completions.create(
                     model=self.model_name,
                     messages=full_messages,
-                    temperature=0.7,
+                    temperature=0.8,
+                    presence_penalty=0.6,
+                    frequency_penalty=0.6,
                     timeout=30
                 )
+                
+                # Handle non-standard responses
+                if isinstance(response, str):
+                    return response
+                if isinstance(response, dict):
+                    return response.get("choices", [{}])[0].get("message", {}).get("content", "")
+                
                 return response.choices[0].message.content
             except Exception as e:
                 # Check for rate limit specifically

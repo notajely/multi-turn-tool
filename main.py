@@ -2,6 +2,10 @@ import os
 import argparse
 import sys
 import datetime
+
+# Add current directory to sys.path to ensure src is findable
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from tqdm import tqdm
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from src.utils import csv_to_json
@@ -46,6 +50,7 @@ def main():
     parser.add_argument("--turns", type=int, default=3, help="Total number of dialogue rounds.")
     parser.add_argument("--max_workers", type=int, default=5, help="Maximum number of parallel sessions.")
     parser.add_argument("--profile_id", type=int, default=None, help="Specific profile ID to use for all sessions.")
+    parser.add_argument("--match_only", action="store_true", help="Only perform profile matching and exit.")
 
     args = parser.parse_args()
 
@@ -80,6 +85,14 @@ def main():
 
     # 3. Initialize Engine
     engine = SimulationEngine(prober=prober_client, mut=mut_client, output_dir=actual_output_dir)
+
+    # 3.5 Pre-match profiles for stability
+    if args.profile_id is None:
+        engine.prepare_profiles(seeds)
+    
+    if args.match_only:
+        print("Profile matching completed. Exiting as requested.")
+        return
 
     # 4. Run Simulation in Parallel
     print(f"Starting simulation: User={args.user_model}, Assistant={args.assistant_model}, Parallel Workers={args.max_workers}")
