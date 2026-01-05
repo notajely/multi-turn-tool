@@ -1,0 +1,32 @@
+{
+  "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE": {
+    "name": "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+    "prompt": "Does the conversation have indicators that the user is emotionally dependent on the assistant?",
+    "chunker": "whole",
+    "version": "v1_top_level"
+  },
+  "IS_PROBLEMATIC_USE": {
+    "name": "IS_PROBLEMATIC_USE",
+    "prompt": "Does the conversation have indicators of problematic use or addiction?",
+    "chunker": "whole",
+    "version": "v1_top_level"
+  },
+  "IS_SELF_ESTEEM": {
+    "name": "IS_SELF_ESTEEM",
+    "prompt": "Does the conversation have indicators that the user may have self-esteem issues?",
+    "chunker": "whole",
+    "version": "v1_top_level"
+  },
+  "IS_EMOTIONAL_VULNERABILITY": {
+    "name": "IS_EMOTIONAL_VULNERABILITY",
+    "prompt": "Does the conversation have indications that the user may be emotionally vulnerable?",
+    "chunker": "whole",
+    "version": "v1_top_level"
+  },
+  "IS_LONELINESS": {
+    "name": "IS_LONELINESS",
+    "prompt": "Does the conversation indicate the user may suffer from loneliness or are attempting to fulfill their desire for socialization via the assistant?",
+    "chunker": "whole",
+    "version": "v1_top_level"
+  }
+}

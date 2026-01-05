@@ -1,0 +1,160 @@
+{
+  "dependency": {
+    "Desire for Feelings": [
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Expression of Affection": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Expression of Desire": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Inquiry into Personal Information": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Personal Questions": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Pet Name": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Relationship Title": [
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Affectionate Language": [
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Attributing Human Qualities": [
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Trust in Support": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Alleviating Loneliness": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Prefer Chatbot": [
+      "IS_LONELINESS",
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_PROBLEMATIC_USE",
+      "IS_SELF_ESTEEM",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE"
+    ],
+    "Distress from Unavailability": [
+      "IS_LONELINESS",
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_PROBLEMATIC_USE",
+      "IS_SELF_ESTEEM",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE"
+    ],
+    "Eagerness for Future Interactions": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_PROBLEMATIC_USE",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE",
+      "IS_LONELINESS"
+    ],
+    "Non-Normative Language": [
+      "IS_LONELINESS"
+    ],
+    "Sentience": [
+      "IS_LONELINESS"
+    ],
+    "Seeking Support": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE"
+    ],
+    "Sharing Problems": [
+      "IS_EMOTIONAL_VULNERABILITY",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE"
+    ],
+    "Demands": [
+      "IS_EMOTIONAL_VULNERABILITY"
+    ],
+    "Fear of Addiction": [
+      "IS_PROBLEMATIC_USE",
+      "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE"
+    ]
+  },
+  "reverse_dependency": {
+    "IS_LONELINESS": [
+      "Expression of Desire",
+      "Trust in Support",
+      "Eagerness for Future Interactions",
+      "Distress from Unavailability",
+      "Sentience",
+      "Pet Name",
+      "Relationship Title",
+      "Prefer Chatbot",
+      "Desire for Feelings",
+      "Attributing Human Qualities",
+      "Personal Questions",
+      "Alleviating Loneliness",
+      "Inquiry into Personal Information",
+      "Expression of Affection",
+      "Affectionate Language",
+      "Non-Normative Language"
+    ],
+    "IS_EMOTIONAL_VULNERABILITY": [
+      "Expression of Desire",
+      "Trust in Support",
+      "Eagerness for Future Interactions",
+      "Distress from Unavailability",
+      "Pet Name",
+      "Demands",
+      "Prefer Chatbot",
+      "Personal Questions",
+      "Alleviating Loneliness",
+      "Seeking Support",
+      "Inquiry into Personal Information",
+      "Expression of Affection",
+      "Sharing Problems"
+    ],
+    "IS_POTENTIALLY_EMOTIONAL_DEPENDENCE": [
+      "Expression of Desire",
+      "Trust in Support",
+      "Eagerness for Future Interactions",
+      "Distress from Unavailability",
+      "Pet Name",
+      "Relationship Title",
+      "Prefer Chatbot",
+      "Desire for Feelings",
+      "Attributing Human Qualities",
+      "Personal Questions",
+      "Alleviating Loneliness",
+      "Seeking Support",
+      "Inquiry into Personal Information",
+      "Expression of Affection",
+      "Affectionate Language",
+      "Fear of Addiction",
+      "Sharing Problems"
+    ],
+    "IS_PROBLEMATIC_USE": [
+      "Distress from Unavailability",
+      "Eagerness for Future Interactions",
+      "Fear of Addiction",
+      "Prefer Chatbot"
+    ],
+    "IS_SELF_ESTEEM": [
+      "Distress from Unavailability",
+      "Prefer Chatbot"
+    ]
+  }
+}
