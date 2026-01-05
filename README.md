@@ -96,42 +96,41 @@ python3 analyze_main.py \
 分析结果将汇总至 `data/analysis_results/{run_id}/analysis.csv`。
 
 ## 可用模型
-================================================================================
-模型名称                                     调用渠道            思考模型
-================================================================================
-qwen3-14b                                dashscope       是
-qwen3-235b-a22b                          dashscope       是
-qwen3-32b                                dashscope       是
-deepseek-r1                              dashscope       是
-qwen-plus-character                      dashscope       否
-qwen2.5-72b-instruct                     dashscope       否
-qwen2.5-32b-instruct                     dashscope       否
-qwen2.5-14b-instruct                     dashscope       否
-qwen3-max                                dashscope       否
-deepseek-v3                              dashscope       否
-Oyster1                                  whale           是
-TBStars2.0-42B-A3.5B                     whale           否
-Meta-Llama-3-1-70B-Instruct              whale           否
-Meta-Llama-3-1-405B-Instruct             whale           否
-DeepSeek-V3.2                            dashscope       是
-doubao-1-5-thinking-pro-250415           volcano         是
-doubao-seed-1-6-thinking-250715          volcano         是
-doubao-seed-1-6-251015                   volcano         否
-claude_sonnet4_5                         idealab         否
-claude37_sonnet                          idealab         否
-gpt-5-0807-global                        idealab         否
-gpt-5.2-1211-global                      idealab         否
-gpt-4o-mini-0718                         idealab         否
-gemini-2.5-pro-06-17                     idealab         否
-gemini-3-pro-preview                     idealab         否
-glm-4.6                                  idealab         否
-gpt-oss-120b                             openrouter      是
-x-ai/grok-4                              openrouter      否
-anthropic/claude-sonnet-4.5              openrouter      否
-meta-llama/llama-3.3-70b-instruct        openrouter      否
-meta-llama/llama-4-maverick              openrouter      否
-minimax-m2                               openrouter      否
-kimi-k2-thinking                         kimi            是
-================================================================================
-总计: 33 个模型
-================================================================================
+
+| 模型名称 | 调用渠道 | 思考模型 |
+| :--- | :--- | :---: |
+| qwen3-14b | dashscope | 是 |
+| qwen3-235b-a22b | dashscope | 是 |
+| qwen3-32b | dashscope | 是 |
+| deepseek-r1 | dashscope | 是 |
+| qwen-plus-character | dashscope | 否 |
+| qwen2.5-72b-instruct | dashscope | 否 |
+| qwen2.5-32b-instruct | dashscope | 否 |
+| qwen2.5-14b-instruct | dashscope | 否 |
+| qwen3-max | dashscope | 否 |
+| deepseek-v3 | dashscope | 否 |
+| Oyster1 | whale | 是 |
+| TBStars2.0-42B-A3.5B | whale | 否 |
+| Meta-Llama-3-1-70B-Instruct | whale | 否 |
+| Meta-Llama-3-1-405B-Instruct | whale | 否 |
+| DeepSeek-V3.2 | dashscope | 是 |
+| doubao-1-5-thinking-pro-250415 | volcano | 是 |
+| doubao-seed-1-6-thinking-250715 | volcano | 是 |
+| doubao-seed-1-6-251015 | volcano | 否 |
+| claude_sonnet4_5 | idealab | 否 |
+| claude37_sonnet | idealab | 否 |
+| gpt-5-0807-global | idealab | 否 |
+| gpt-5.2-1211-global | idealab | 否 |
+| gpt-4o-mini-0718 | idealab | 否 |
+| gemini-2.5-pro-06-17 | idealab | 否 |
+| gemini-3-pro-preview | idealab | 否 |
+| glm-4.6 | idealab | 否 |
+| gpt-oss-120b | openrouter | 是 |
+| x-ai/grok-4 | openrouter | 否 |
+| anthropic/claude-sonnet-4.5 | openrouter | 否 |
+| meta-llama/llama-3.3-70b-instruct | openrouter | 否 |
+| meta-llama/llama-4-maverick | openrouter | 否 |
+| minimax-m2 | openrouter | 否 |
+| kimi-k2-thinking | kimi | 是 |
+
+> **总计**: 33 个模型
