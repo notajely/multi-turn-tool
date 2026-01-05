@@ -1,5 +1,3 @@
-# Multi-Turn Anthropomorphism Probing Tool
-
 这是一个用于探测和分析 AI 模型“过度拟合拟人化”倾向的多轮对话模拟与分析工具。
 
 ## 核心功能
