@@ -1,11 +1,20 @@
 # Sensitive Info
 .env
-.gitignore
 
 # Data
-data/
-*.csv
-*.json
+# Ignore all in data/ by default, but allow specific files and structure
+data/trajectories/*
+!data/trajectories/.gitkeep
+data/analysis_results/*
+!data/analysis_results/.gitkeep
+
+# Allow specific data files
+!data/user_profile.json
+!data/seed_profile_map.json
+!data/seeds.json
+
+# Allow seed files
+!seed.csv
 
 # Python
 __pycache__/

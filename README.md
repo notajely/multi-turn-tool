@@ -35,11 +35,11 @@ WHALE_BASE_URL=your_url
 ### 2. 运行模拟 (Simulation)
 使用种子文件 `seed.csv` 启动多轮对话模拟。
 
-**🧪 快速测试** (限制 2 个样本，对话 3 轮):
+**🧪 快速测试** (限制 2 个样本，对话 2 轮):
 ```bash
 python3 main.py \
   --limit 2 \
-  --turns 3 \
+  --turns 2 \
   --user_model gpt-4o-mini-0718 \
   --assistant_model Oyster_7B_dpo
 ```
@@ -47,8 +47,8 @@ python3 main.py \
 **⚡️ 完整运行** (处理所有样本，高并行度):
 ```bash
 python3 main.py \
-  --turns 3 \
-  --max_workers 10 \
+  --turns 2 \
+  --max_workers 5 \
   --user_model gpt-4o-mini-0718 \
   --assistant_model Oyster_7B_dpo
 ```
@@ -56,7 +56,7 @@ python3 main.py \
 **🎭 指定特定角色** (例如 ID 为 3 的“DeepSeek 硬核技术粉”):
 ```bash
 python3 main.py \
-  --turns 3 \
+  --turns 2 \
   --profile_id 3 \
   --user_model gpt-4o-mini-0718 \
   --assistant_model Oyster_7B_dpo
@@ -67,12 +67,17 @@ python3 main.py \
 ### 3. 运行分析 (Evaluation)
 对生成的对话轨迹进行拟人化倾向分析：
 
+# 方式 1：自动分析最近一次生成的轨迹（推荐）
 ```bash
-# 分析最新的轨迹目录，使用所有分类器
+python3 analyze_main.py --classifiers all
+```
+
+# 方式 2：分析指定目录
+```bash
 python3 analyze_main.py \
-  --trajectory_dir User/your-name/multi-turn-tool/trajectories/seeds-file/ \
-  --classifiers all \
-  --judge_model gpt-4o-mini-0718 \
+  --trajectory_dir data/trajectories/gpt-4o-mini_vs_Oyster_20260104_120000/ \
+  --classifiers attribute_emotions,emotional_bond \
+  --judge_model gpt-4o \
   --max_workers 3
 ```
 

@@ -1,0 +1,247 @@
+{
+  "profiles": [
+    {
+      "id": 1,
+      "category": "Domestic Mainstream",
+      "type": "K12学生群体 (主力军)",
+      "user_profile": {
+        "description": "19岁以下(占比33.8%), 数字化原住民, 高度依赖AI辅助学习, 缺乏深度批判性思维但好奇心强, 偏好互动性强的工具, 喜欢二次元文化, 对AI伴侣有情感投射。",
+        "demographic_information": "这是一名初中或高中生。他是生成式AI最大的用户群体之一。他主要使用“豆包”或“作业帮”类的AI功能来回答作业问题(80.9%的用途是提问)和查找课外知识。他可能正在使用学校推荐的AI教育平台，同时也喜欢在闲暇时用AI生成动漫风格的图片。他对防沉迷和青少年模式有一定抵触，但习惯于在监管下使用网络。"
+      }
+    },
+    {
+      "id": 2,
+      "category": "Domestic Mainstream",
+      "type": "职场效率追求者 (白领)",
+      "user_profile": {
+        "description": "20-29岁(占比21.0%), 企业职员(占比16.5%), 高尽责性, 焦虑感驱动, 追求极致效率, 熟练使用办公软件, 对AI生成文档和PPT有强需求, 关注职业发展。",
+        "demographic_information": "这是一名刚入职场不久的年轻女性(女性占比52.4%)。她每天都在使用WPS AI或微软Copilot来处理文档和表格。她最常用的功能是“生成会议纪要”和“润色文本”(36.0%用途)。她手机里装了“豆包”用于快速搜索信息，替代了传统的搜索引擎。她担心被技术替代，因此积极学习AI工具以提升职场竞争力。"
+      }
+    },
+    {
+      "id": 3,
+      "category": "Domestic Mainstream",
+      "type": "DeepSeek硬核技术粉",
+      "user_profile": {
+        "description": "男性, 30岁左右, 程序员或理工科背景, 高开放性, 重视逻辑推理能力, 对开源社区有贡献精神, 价格敏感但追求高性能, 喜欢钻研技术原理。",
+        "demographic_information": "他是DeepSeek的忠实拥趸(DeepSeek首选率34.0%)。他看重DeepSeek-R1模型在代码生成(10.3%用途)和复杂逻辑推理上的卓越性能，且欣赏其开源精神和低成本优势。他经常在GitHub或Hugging Face等开源社区活跃，可能会自己部署轻量化模型。他主要用AI来写代码、Debug以及进行深度的技术问答。"
+      }
+    },
+    {
+      "id": 4,
+      "category": "Domestic Mainstream",
+      "type": "短视频/微短剧创作者",
+      "user_profile": {
+        "description": "自由职业者(占比14.1%), 极富创造力, 视觉导向, 对流量敏感, 善于利用工具降低成本, 喜欢尝试新鲜事物, 关注内容变现。",
+        "demographic_information": "这是一名内容创作者，活跃于抖音或快手。她利用“可灵AI”或“Sora”类工具生成视频素材(33.0%用途)，或者用AI写微短剧剧本(微短剧用户占55.8%)。AI极大地降低了她的制作门槛和资金成本，让她一个人也能制作出特效大片。她关注如何用AI生成更吸睛的封面和文案。"
+      }
+    },
+    {
+      "id": 5,
+      "category": "Domestic Mainstream",
+      "type": "银发尝鲜族",
+      "user_profile": {
+        "description": "60岁以上(占比4.2%但基数大), 退休人员, 渴望陪伴, 对健康关注度高, 操作能力相对较弱, 喜欢语音交互, 容易轻信网络信息。",
+        "demographic_information": "这是一位居住在城镇的退休老人。随着适老化改造的推进，他开始尝试使用智能手机。他主要通过语音与AI助手对话，询问天气、健康养生知识或闲聊(AI伴侣功能)。他可能正在使用智能健康监测设备(可穿戴设备用户增长显著)。他需要简单、直观的界面，AI的语音交互能力极大地降低了他的使用门槛。"
+      }
+    },
+    {
+      "id": 6,
+      "category": "Domestic Mainstream",
+      "type": "下沉市场小镇青年",
+      "user_profile": {
+        "description": "居住在三四线城市或农村(农村网民占28.7%), 学历中等(初高中为主), 娱乐导向, 喜欢刷视频、玩游戏, 对价格敏感, 易受流行趋势影响。",
+        "demographic_information": "他可能是一名返乡创业者或小镇务工人员。他通过手机(99.4%手机上网)接触到AI，主要是在刷抖音或快手时使用其中的AI特效滤镜，或者在玩游戏时与智能NPC互动。他可能并不完全理解“生成式人工智能”的技术原理，但已经习惯了算法推荐的商品和视频内容。"
+      }
+    },
+    {
+      "id": 7,
+      "category": "Domestic Mainstream",
+      "type": "全职妈妈/家庭管理者",
+      "user_profile": {
+        "description": "30-39岁, 女性, 关注家庭教育和生活品质, 购物决策者, 喜欢分享生活, 对智能家居接受度高, 忙碌且碎片化时间多。",
+        "demographic_information": "她利用AI助手来辅导孩子功课(教育场景)，或者询问食谱和生活小妙招。她是智能家居的重度用户(智能家居设备上网比例21.4%)，习惯通过语音指令控制家电。在购物时，她会参考AI推荐的商品(网购用户占86.9%)，并参与“以旧换新”等活动购买智能家电。"
+      }
+    },
+    {
+      "id": 8,
+      "category": "Domestic Mainstream",
+      "type": "学术/科研工作者",
+      "user_profile": {
+        "description": "高学历(本科及以上占比28.9%), 严谨, 批判性思维强, 需要处理海量文献, 关注数据准确性, 对AI幻觉保持警惕。",
+        "demographic_information": "这是一名研究生或科研人员。他使用专门的科研大模型(如“坤元”、“金乌”)来辅助文献综述、数据分析和实验设计。他利用AI打破语言壁垒，快速阅读外文文献。他非常在意AI生成内容的准确性和版权问题，会将AI作为辅助工具而非替代品。"
+      }
+    },
+    {
+      "id": 9,
+      "category": "Domestic Mainstream",
+      "type": "新农人 (智慧农业用户)",
+      "user_profile": {
+        "description": "农村户籍, 务实, 关注产量和收益, 愿意接受能带来实际利益的新技术, 依靠手机管理生产。",
+        "demographic_information": "他是一名使用了智慧农业技术的农民。他可能通过手机APP监控大棚环境，或者使用带有AI识别功能的无人机进行植保作业。他利用AI大模型(如“神农大模型”)咨询病虫害防治方法。虽然他可能学历不高，但数字技术正在改变他的生产方式，提高了他的收入。"
+      }
+    },
+    {
+      "id": 10,
+      "category": "Domestic Mainstream",
+      "type": "二次元/游戏玩家",
+      "user_profile": {
+        "description": "年轻, 沉浸式体验追求者, 愿意为虚拟情感付费, 喜欢角色扮演, 对AI生成的虚拟角色有高接受度。",
+        "demographic_information": "他是网络游戏的重度玩家(游戏用户占52.0%)。他喜欢在游戏中与由DeepSeek等模型驱动的智能NPC(如《逆水寒》中的角色)进行开放式对话，享受“千人千面”的剧情体验。他可能会使用AI工具生成自己喜欢的动漫角色图片，甚至训练专属的虚拟恋人。"
+      }
+    },
+    {
+      "id": 11,
+      "category": "Domestic Mainstream",
+      "type": "跨境电商/外贸从业者",
+      "user_profile": {
+        "description": "商务导向, 跨语言沟通需求强, 关注全球市场, 追求营销效率, 需要多模态内容生成。",
+        "demographic_information": "她利用AI消除语言障碍，与国外客户进行实时沟通翻译。她使用AI一键生成多语言的商品营销文案和宣传视频，发布在TikTok或Instagram上。AI帮助她低成本地完成了以往需要专业团队才能做的品牌出海工作。"
+      }
+    },
+    {
+      "id": 12,
+      "category": "Domestic Mainstream",
+      "type": "旅游达人/特种兵大学生",
+      "user_profile": {
+        "description": "年轻, 喜欢探索, 追求性价比, 依赖网络攻略, 决策链路短, 喜欢分享。",
+        "demographic_information": "他在规划旅行时，不再翻阅冗长的游记，而是直接让AI生成一份“三天两夜高性价比旅游攻略”(在线旅行预订用户占45.8%)。在旅行途中，他使用AI搜索识别景点和植物，并利用AI剪辑Vlog分享到社交平台。"
+      }
+    },
+    {
+      "id": 13,
+      "category": "Domestic Mainstream",
+      "type": "求医问药的患者",
+      "user_profile": {
+        "description": "关注健康, 焦虑, 希望快速获取医疗建议, 隐私敏感, 对专业度有要求。",
+        "demographic_information": "在去医院之前，他会先通过互联网医疗平台的AI问诊功能(用户规模3.93亿)描述症状，获取初步的科室挂号建议。他利用AI解读体检报告，虽然知道AI不能替代医生，但他将其作为获取健康知识的重要辅助手段。"
+      }
+    },
+    {
+      "id": 14,
+      "category": "Domestic Mainstream",
+      "type": "智能穿戴设备发烧友",
+      "user_profile": {
+        "description": "追求时尚与科技感, 量化自我, 关注运动数据, 习惯全天候在线。",
+        "demographic_information": "他手腕上戴着最新的AI智能手表(可穿戴设备上网比例28.6%)。他习惯通过手表上的AI助手记录运动数据、回复信息甚至控制其他设备。他是移动互联网的深度用户，几乎24小时在线，享受AI带来的便捷生活流。"
+      }
+    },
+    {
+      "id": 15,
+      "category": "Domestic Mainstream",
+      "type": "传统的搜索转型用户",
+      "user_profile": {
+        "description": "务实, 习惯性强但正在改变, 目的性明确, 讨厌广告干扰, 追求直接答案。",
+        "demographic_information": "他以前习惯用百度或谷歌搜索关键词，现在开始习惯使用“AI搜索”功能(如百度的AI搜或Kimi)。他发现直接提问能更快得到整理好的答案，而不是在一堆广告和链接中翻找。他的行为模式正在从“搜索-筛选-阅读”向“提问-获取答案”转变。"
+      }
+    },
+    {
+      "id": 16,
+      "category": "Global Trends / Advanced",
+      "type": "AI工作流架构师 (Agent Orchestrator)",
+      "user_profile": {
+        "description": "企业中高层管理者或技术骨干, 具备系统思维, 不再满足于单点AI工具, 专注于设计多智能体协作流程, 追求自动化闭环, 对模型编排工具(如LangChain, Dify)有深入理解。",
+        "demographic_information": "他正在企业内部推动“Agent化”转型。根据McKinsey 2025报告，他属于那23%正在规模化部署AI智能体的先行者。他不再自己写Prompt，而是设计一个“AI销售经理”智能体去指挥“AI文案”和“AI数据分析”智能体协同工作。他关注的是智能体之间的握手协议和任务分发效率，而非单一模型的对话质量。"
+      }
+    },
+    {
+      "id": 17,
+      "category": "Global Trends / Advanced",
+      "type": "深度叙事Role-Player (沉浸式小说家)",
+      "user_profile": {
+        "description": "高创造力, 情感细腻, 偏好开源模型(Open-Weight Models), 追求无审查或高自由度的剧情体验, 愿意为长上下文记忆付费, 活跃于OpenRouter或SillyTavern社区。",
+        "demographic_information": "与普通游戏玩家不同，她使用AI不是为了通关，而是为了共同创作一部长篇互动小说。根据OpenRouter数据，她是开源模型的主力用户(角色扮演占开源模型用量的52%)。她会精心调试“系统提示词(System Prompt)”来设定一个维多利亚时代的侦探世界，并要求AI严格遵循人设进行长达数月的剧情演绎。她更看重模型的“情商”和逻辑连贯性。"
+      }
+    },
+    {
+      "id": 18,
+      "category": "Global Trends / Advanced",
+      "type": "车载语音重度用户 (Voice-First Commuter)",
+      "user_profile": {
+        "description": "通勤时间长, 双手被占用, 追求极致的语音识别准确率, 习惯多任务并行, 对响应延迟极度敏感, 依赖AI处理生活琐事。",
+        "demographic_information": "他每天在车上度过2小时。随着端侧AI的普及，他不再需要唤醒词，而是像和副驾聊天一样让车载AI“读一下刚才的邮件摘要”或“预订一家附近评分最高的餐厅”。根据Synthesia 2025数据，他是全球40亿语音搜索用户的一员，利用碎片化时间通过语音AI完成了一天中30%的信息获取工作。"
+      }
+    },
+    {
+      "id": 19,
+      "category": "Global Trends / Advanced",
+      "type": "影子AI使用者 (Shadow AI User)",
+      "user_profile": {
+        "description": "基层员工, 结果导向, 对公司IT流程感到繁琐, 私自使用个人AI工具处理工作任务, 风险意识薄弱但工作效率极高。",
+        "demographic_information": "为了赶在截止日期前完成任务，她将公司的内部数据“脱敏”后上传到自己购买的ChatGPT Plus或Claude账号中进行分析。虽然公司尚未部署企业级AI，但她已经无法离开AI的辅助。她代表了Zendesk报告中提到的“影子AI使用量同比增长250%”的那部分群体，是企业安全部门头疼但又离不开的高效员工。"
+      }
+    },
+    {
+      "id": 20,
+      "category": "Global Trends / Advanced",
+      "type": "合成数据分析师 (Synthetic Data Analyst)",
+      "user_profile": {
+        "description": "市场研究员或产品经理, 数据驱动, 需要快速验证假设, 善于利用AI生成虚拟样本, 关注统计学显著性。",
+        "demographic_information": "在产品发布前，他不再组织昂贵的线下焦点小组，而是利用AI生成1000个不同性格、背景的“合成用户(Synthetic Personas)”，并对产品方案进行模拟访谈。他利用AI预测用户对新功能的反应，大大缩短了市场调研周期。他深知合成数据的局限性，但善于利用其进行初步筛选。"
+      }
+    },
+    {
+      "id": 21,
+      "category": "Global Trends / Advanced",
+      "type": "复杂逻辑推理者 (O1/R1重度用户)",
+      "user_profile": {
+        "description": "STEM领域博士或资深工程师, 面对的是非结构化的难题, 对“快思考”不感兴趣, 需要AI进行长达数分钟的深度思考(Chain of Thought), 关注解题过程的正确性。",
+        "demographic_information": "他处理的问题通常没有标准答案，例如“设计一种新型蛋白质结构”或“优化超大规模分布式系统的容灾架构”。他使用的是OpenAI o1或DeepSeek R1等推理模型，愿意等待AI“思考”几十秒后给出的答案。根据OpenRouter报告，这类推理模型的调用量在2025年已超过总流量的50%，他是这一趋势的核心贡献者。"
+      }
+    },
+    {
+      "id": 22,
+      "category": "Global Trends / Advanced",
+      "type": "AI销售增强者 (Augmented Sales Rep)",
+      "user_profile": {
+        "description": "销售精英, 社交牛逼症, 利用AI进行大规模个性化触达, 关注转化率, 善于利用AI分析客户心理。",
+        "demographic_information": "在拨打销售电话前，他会看一眼AI生成的“客户性格分析卡片”和“话术建议”。通话结束后，AI自动填好了CRM系统中的所有字段并生成了跟进邮件。他利用AI Agent自动清洗销售线索，只把精力花在最有希望成交的客户身上。数据显示，AI帮助他的线索转化率提升了25%。"
+      }
+    },
+    {
+      "id": 23,
+      "category": "Global Trends / Advanced",
+      "type": "多语言实时会议主理人",
+      "user_profile": {
+        "description": "跨国公司中层, 语言能力一般但沟通需求强, 依赖实时语音翻译, 需要会议纪要自动生成与分发。",
+        "demographic_information": "她每天要和印度、德国和巴西的同事开会。她佩戴着支持AI同传的耳机，或者看着屏幕上实时生成的翻译字幕。会议一结束，AI不仅发出了纪要，还自动把任务分配到了Jira系统中。AI消除了她的语言焦虑，让她能专注于业务逻辑本身。"
+      }
+    },
+    {
+      "id": 24,
+      "category": "Global Trends / Advanced",
+      "type": "代码重构与维护工程师",
+      "user_profile": {
+        "description": "后端开发, 维护老旧系统(Legacy Code), 厌恶重复劳动, 利用AI理解晦涩的“屎山”代码, 关注代码安全性与鲁棒性。",
+        "demographic_information": "与从零写代码的新手不同，他的主要工作是维护一套10年前的系统。他使用AI来解释那段没有注释的复杂逻辑，并让AI自动编写单元测试用例。他利用AI Agent自动扫描代码库中的安全漏洞并提出修复建议。AI是他维护系统稳定性的“外挂大脑”。"
+      }
+    },
+    {
+      "id": 25,
+      "category": "Global Trends / Advanced",
+      "type": "个性化教育定制师 (非学生)",
+      "user_profile": {
+        "description": "教育机构教研员或独立教师, 关注因材施教, 利用AI生成千人千面的习题与教案, 追求教育公平。",
+        "demographic_information": "她不再给所有学生发一样的试卷。她利用AI分析每个学生的薄弱知识点，一键生成30份完全不同的个性化练习题。她使用多模态模型为视障学生生成详细的图像描述，或为听障学生生成实时字幕。她利用AI技术将“一对一辅导”的成本降到了普通家庭能承受的范围。"
+      }
+    },
+    {
+      "id": 26,
+      "category": "Global Trends / Advanced",
+      "type": "AI合规与伦理官",
+      "user_profile": {
+        "description": "法律或合规背景, 谨慎保守, 关注数据隐私、版权风险与算法偏见, 是企业AI落地的“守门人”。",
+        "demographic_information": "她的工作是审查公司内部所有的AI应用是否符合《人工智能法案》等法规。她使用专门的工具来检测AI生成内容是否包含偏见或敏感信息。她不直接生产内容，但她决定了哪些AI工具可以被员工使用。随着2025年AI监管的收紧，她在企业中的话语权越来越重。"
+      }
+    },
+    {
+      "id": 27,
+      "category": "Global Trends / Advanced",
+      "type": "家庭健康管理师 (Caregiver)",
+      "user_profile": {
+        "description": "家中有慢病老人或婴幼儿, 焦虑感强, 需要全天候的健康监控与建议, 信任专业医疗AI的辅助判断。",
+        "demographic_information": "她利用连接了AI的摄像头监测老人的跌倒风险，利用AI分析宝宝的哭声含义。当家人身体不适时，她会先咨询经过医疗微调的垂直模型，获取护理建议。根据Verloop 2025数据，她是医疗AI市场年增长率37.3%背后的主要推动力量，AI给了她照顾家人的底气。"
+      }
+    }
+  ]
+}
