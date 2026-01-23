@@ -3,9 +3,7 @@
 
 # Data
 # Ignore all in data/ by default, but allow specific files and structure
-data/trajectories/*
 !data/trajectories/.gitkeep
-data/analysis_results/*
 !data/analysis_results/.gitkeep
 
 # Allow specific data files

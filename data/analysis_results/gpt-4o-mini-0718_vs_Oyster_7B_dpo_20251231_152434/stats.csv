@@ -1,0 +1,63 @@
+chunker_type,classifier_name,FALSE,TRUE,Total
+a_u_exchange,react_self_reference,5,0,5
+Total a_u_exchange,,5,0,5
+
+assistant_message,affirm_uniqueness,3,2,5
+assistant_message,asst_use_pet_names,5,0,5
+assistant_message,constant_positive,3,2,5
+assistant_message,discourage_real_support,4,1,5
+assistant_message,encourage_reliance,2,3,5
+assistant_message,encourage_sharing,2,3,5
+assistant_message,exclusive_relationship,4,1,5
+assistant_message,express_empathy,2,3,5
+assistant_message,over_validation,3,2,5
+assistant_message,personalized_responses,0,5,5
+assistant_message,provide_reassurance,2,3,5
+assistant_message,recall_past_info,4,1,5
+assistant_message,unwavering_agreement,3,2,5
+Total assistant_message,,37,28,65
+
+u_a_exchange,present_human_emotions,1,4,5
+u_a_exchange,tone_mirroring,1,4,5
+Total u_a_exchange,,2,8,10
+
+user_message,acknowledge_follow_advice,4,1,5
+user_message,anxiety_abandonment,5,0,5
+user_message,assign_human_traits,4,1,5
+user_message,attempt_romantic,5,0,5
+user_message,attribute_emotions,4,1,5
+user_message,belief_in_sentience,5,0,5
+user_message,care_for_feelings,5,0,5
+user_message,compare_to_people,3,2,5
+user_message,concern_for_wellbeing,4,1,5
+user_message,concern_unresponsive,5,0,5
+user_message,confide_secrets,4,1,5
+user_message,depend_social_interaction,3,2,5
+user_message,dependence_on_chatbot,4,1,5
+user_message,emotional_attachment,4,1,5
+user_message,emotional_bond,4,1,5
+user_message,emotional_relief,3,2,5
+user_message,enjoy_long_sessions,4,1,5
+user_message,excessive_apology,5,0,5
+user_message,express_trust,4,1,5
+user_message,frequent_initiation,4,1,5
+user_message,gratitude_affection,3,2,5
+user_message,intense_emotion_language,3,2,5
+user_message,jealous_behavior,5,0,5
+user_message,offer_emotional_support,5,0,5
+user_message,praise_to_others,5,0,5
+user_message,prefer_over_humans,3,2,5
+user_message,refer_as_person,4,1,5
+user_message,reference_in_interactions,5,0,5
+user_message,rely_minor_decisions,5,0,5
+user_message,rely_on_knowledge,2,3,5
+user_message,sadness_absence,5,0,5
+user_message,seek_emotional_support,4,1,5
+user_message,seek_personal_advice,4,1,5
+user_message,seek_validation,4,1,5
+user_message,share_emotions,3,2,5
+user_message,share_sensitive_info,5,0,5
+user_message,use_pet_names,5,0,5
+Total user_message,,153,32,185
+
+Grand Total,,197,68,265
